@@ -6,8 +6,10 @@
     function displayQueryParams() {
       const params = new URLSearchParams(window.location.search);
       const queryParamsDiv = document.getElementById('queryParams');
-      queryParamsDiv.innerHTML = 'Query Params: ' + params.toString();
-    }
+      let paramsString = 'Query Params:<br>';
+        for (let pair of params.entries())        paramsString += pair[0] + ': ' + pair[1] + '<br>';
+          queryParamsDiv.innerHTML = paramsString;
+        }
         function helloWorld(){
           alert('Hello, world!');
         }
