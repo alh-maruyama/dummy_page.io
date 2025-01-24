@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WELCOM!</title>
+  <script>
+    function displayQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const queryParamsDiv = document.getElementById('queryParams');
+      queryParamsDiv.innerHTML = 'Query Params: ' + params.toString();
+    }
+        function helloWorld(){
+          alert('Hello, world!');
+        }
+       
+    window.onload = displayQueryParams;
+  </script>
+</head>
+<body>
+  <h1>Main Page</h1>
+  <button onclick="helloWorld()">Click me!</button>
+  <div id="queryParams"></div>
+  <a href="pageA.html">Go to Page A</a>
+</body>
+</html>
