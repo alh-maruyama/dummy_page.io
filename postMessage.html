@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WELCOME!</title>
+  <script>
+    function displayQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const queryParamsDiv = document.getElementById('queryParams');
+      let paramsString = 'Query Params:<br>';
+        for (let pair of params.entries())        paramsString += pair[0] + ': ' + pair[1] + '<br>';
+          queryParamsDiv.innerHTML = paramsString;
+        }
+        function helloWorld(){
+          alert('Hello, world!');
+        }
+        function handlePostMessage(event) {
+          const receivedDataDiv = document.getElementById('receivedData');
+          const { data, origin } = event;
+
+          // JSONと送信元オリジンを画面に表示
+          receivedDataDiv.innerHTML = `
+            <p>Received JSON: ${JSON.stringify(data)}</p>
+            <p>Origin: ${origin}</p>
+          `;
+
+          // 4秒後に親に正常終了を通知
+          setTimeout(() => {
+            event.source.postMessage({ status: 'success' }, origin);
+          }, 4000);
+        }
+
+    window.onload = function() {
+      displayQueryParams();
+      window.addEventListener('message', handlePostMessage);
+    };
+  </script>
+</head>
+<body>
+  <h1>ウェルカムページです。</h1>
+  <button onclick="helloWorld()">Click me!</button>
+  <div id="queryParams"></div>
+  <div id="receivedData"></div>
+  <a href="pageA.html">Go to Page A</a>
+  <a href="pageA.html" target="_blank" rel="noopener noreferrer">Go to Page A Tab</a>
+  <a href="https://shiki-naoya.github.io/iframe-dummy/">Go to Page B</a>
+  <a href="https://shiki-naoya.github.io/iframe-dummy/" target="_blank" rel="noopener noreferrer">Go to Page B Tab</a>
+</body>
+</html>
