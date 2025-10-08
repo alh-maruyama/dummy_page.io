@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>クーポン利用詳細ページです!</title>
+  <script>
+    // クエリパラメータを取得して表示
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      let html = '';
+      if (params.toString()) {
+        html += '<ul>';
+        params.forEach((value, key) => {
+          html += `<li>${key}: ${value}</li>`;
+        });
+        html += '</ul>';
+      } else {
+        html = 'クエリパラメータはありません。';
+      }
+      document.getElementById('queryParams').innerHTML = html;
+    };
+  </script>
+</head>
+<body>
+  <h1>クーポン利用詳細ページです!</h1>
+  <div id="queryParams"></div>
+</body>
+</html>
