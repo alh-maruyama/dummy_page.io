@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+  <script>
+    function displayQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const queryParamsDiv = document.getElementById('queryParams');
+      queryParamsDiv.innerHTML = 'Query Params: ' + params.toString();
+    }
+        function helloWorld(){
+          alert('Hello, world!');
+        }
+       
+    window.onload = displayQueryParams;
+  </script>
+</head>
+<body>
+  <h1>商品利用ページです！</h1>
+  <button onclick="helloWorld()">Click me!</button>
+  <div id="queryParams"></div>
+  <a href="pageA.html">Go to Page A</a>
+  <a href="pageA.html" target="_blank" rel="noopener noreferrer">Go to Page A Tab</a>
+  <a href="https://shiki-naoya.github.io/iframe-dummy/">Go to Page B</a>
+  <a href="https://shiki-naoya.github.io/iframe-dummy/" target="_blank" rel="noopener noreferrer">Go to Page B Tab</a>
+</body>
+</html>
